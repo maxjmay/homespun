@@ -1,12 +1,16 @@
 {
-	"name": "homespan",
-	"version": "0.0.1",
+	"name": "homespun",
+	"version": "0.0.0",
 	"dependencies": {
-		"angular": "*",
-		"jQuery": "*",
-		"socket.io-client": "*",
-		"angular-resource" : "*",
-		"angular-cookies" : "*",
-		"angular-sanitize" : "*"
+		"semantic-ui": "1.1.*",
+		"fontawesome": "*",
+		"angular": "~1.*",
+		"angular-route": "~1.*",
+		"angular-local-storage": "~0.1.0",
+		"angular-resource": "*",
+		"angular-input-date": "*"
+	},
+	"resolutions": {
+		"angular": "1.3.11"
 	}
 }

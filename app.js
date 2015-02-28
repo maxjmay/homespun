@@ -30,9 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.set('view engine', 'jshtml');
 
 // development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+app.use(express.errorHandler());
 
 app.get('/', function(req, res) {
     fs.readFile(__dirname + '/public/index.html', 'utf8', function(err, text){
@@ -48,4 +46,11 @@ server.listen(app.get('port'), function(){
 
 io.sockets.on('connection', function (socket) {
     console.log('connected');
+});
+
+//Redirect to index.html if no middleware has picked up the request
+app.all("/*", function (req, res, next) {
+	res.sendfile("index.html", {
+		root: __dirname + "/public"
+	});
 });

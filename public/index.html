@@ -1,42 +1,66 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<!DOCTYPE HTML>
+<html>
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
+	<title>Homespun</title>
 	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="theme-color" content="#d95c5c">
+	<base href="/" />
+
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+	<link rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css">
+	<!-- build:css styles/libraries.min.css -->
+	<!-- bower:css -->
+	<link rel="stylesheet" href="../lib/semantic-ui/dist/semantic.css" />
+	<link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css" />
+	<!--	<link rel="stylesheet" href="tinyEditor/tinyeditor.css" />-->
+	<!-- endbower -->
+	<!-- endbuild -->
+	<!-- build:css(.tmp) styles/main.css -->
 	<link rel="stylesheet" href="styles/main.css">
+	<!-- endbuild -->
 </head>
+<!--[if lt IE 10]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 
-<body ng-app="clientApp">
-	<!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<body ng-app="HomespunApp" ng-controller="RootController">
+	<div style="display:inline-block;" id="navigationBar" ng-include="'views/nav.html'"></div>
+	<div style="display:inline-block;" ng-view class="main browser"></div>
 
-	<div class="container" ng-view=""></div>
+	<!-- build:js scripts/vendor.js -->
+	<!-- bower:js -->
+	<script src="../lib/jquery/dist/jquery.js"></script>
+	<script src="../lib/semantic-ui/dist/semantic.js"></script>
+	<script src="../lib/angular/angular.js"></script>
+	<script src="../lib/angular-route/angular-route.js"></script>
+	<script src="../lib/angular-local-storage/dist/angular-local-storage.js"></script>
+	<script src="../lib/angular-resource/angular-resource.js"></script>
+	<script src="../lib/angular-input-date/src/angular-input-date.js"></script>
+	<!-- endbower -->
+	<!-- endbuild -->
 
+	<!-- build:js scripts/main.js -->
+	<!-- bower:js -->
+	<script src="../scripts/app.js"></script>
+	<script src="../scripts/controllers/rootController.js"></script>
+	<script src="../scripts/services/resourceService.js"></script>
+	<script src="../scripts/services/storageService.js"></script>
+	<script src="../scripts/controllers/dashboard/dashboardController.js"></script>
+	<script src="../scripts/services/dashboard/dashboardService.js"></script>
+	<script src="../scripts/controllers/devices/devicesController.js"></script>
+	<script src="../scripts/services/devices/devicesService.js"></script>
+	<script src="../scripts/controllers/channels/channelsController.js"></script>
+	<script src="../scripts/services/channels/channelsService.js"></script>
+	<script src="../scripts/controllers/system/systemController.js"></script>
+	<script src="../scripts/services/system/systemService.js"></script>
+	<!-- endbower -->
+	<!-- endbuild -->
 
-	<script src="libs/jquery/jquery.js"></script>
-	<script src="libs/angular/angular.js"></script>
-
-	<script src="libs/socket.io-client/dist/socket.io.js"></script>
-
-	<script src="libs/angular-resource/angular-resource.js"></script>
-	<script src="libs/angular-cookies/angular-cookies.js"></script>
-	<script src="libs/angular-sanitize/angular-sanitize.js"></script>
-
-	<script src="scripts/app.js"></script>
-	<script src="scripts/controllers/main.js"></script>
-	<script src="scripts/services/socket.js"></script>
 </body>
 
 </html>
