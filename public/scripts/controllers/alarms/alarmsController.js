@@ -1,7 +1,7 @@
 /*global Homespun, angular, $ */
 
-Homespun.controller('DevicesController', ['$scope', '$rootScope', '$http', '$location',
-	function devicesController($scope, $rootScope, $http, $location) {
+Homespun.controller('AlarmsController', ['$scope', '$rootScope', '$http', '$location',
+	function alarmsController($scope, $rootScope, $http, $location) {
 		'use strict';
 
 		if ($location.path() == '/dashboard' || $location.path() == '/') {
@@ -29,5 +29,4 @@ Homespun.controller('DevicesController', ['$scope', '$rootScope', '$http', '$loc
 			$rootScope.allFalse();
 			$rootScope.system = true;
 		}
-
 }]);

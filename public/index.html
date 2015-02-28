@@ -30,7 +30,7 @@
 
 <body ng-app="HomespunApp" ng-controller="RootController">
 	<div style="display:inline-block;" id="navigationBar" ng-include="'views/nav.html'"></div>
-	<div style="display:inline-block;" ng-view class="main browser"></div>
+	<div style="display:inline-block; width: calc(100% - 225px);" ng-view class="main browser"></div>
 
 	<!-- build:js scripts/vendor.js -->
 	<!-- bower:js -->
@@ -56,6 +56,10 @@
 	<script src="/scripts/services/devices/devicesService.js"></script>
 	<script src="/scripts/controllers/channels/channelsController.js"></script>
 	<script src="/scripts/services/channels/channelsService.js"></script>
+	<script src="/scripts/controllers/message/messageController.js"></script>
+	<script src="/scripts/controllers/social/socialController.js"></script>
+	<script src="/scripts/controllers/timers/timersController.js"></script>
+	<script src="/scripts/controllers/alarms/alarmsController.js"></script>
 	<script src="/scripts/controllers/system/systemController.js"></script>
 	<script src="/scripts/services/system/systemService.js"></script>
 	<!-- endbower -->

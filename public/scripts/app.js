@@ -41,6 +41,10 @@ Homespun.config(['$routeProvider', '$locationProvider',
 			templateUrl: 'views/devices/device',
 			controller: 'DevicesController'
 		}).
+		when('/device/:id/remote', {
+			templateUrl: 'views/devices/remote',
+			controller: 'DevicesController'
+		}).
 		when('/channels', {
 			templateUrl: 'views/channels',
 			controller: 'ChannelsController'
@@ -48,6 +52,22 @@ Homespun.config(['$routeProvider', '$locationProvider',
 		when('/channel/:id', {
 			templateUrl: 'views/channels/channel',
 			controller: 'ChannelsController'
+		}).
+		when('/social', {
+			templateUrl: 'views/social',
+			controller: 'SocialController'
+		}).
+		when('/message', {
+			templateUrl: 'views/message',
+			controller: 'MessageController'
+		}).
+		when('/timers', {
+			templateUrl: 'views/timers',
+			controller: 'TimersController'
+		}).
+		when('/alarms', {
+			templateUrl: 'views/alarms',
+			controller: 'AlarmsController'
 		}).
 		when('/system', {
 			templateUrl: 'views/system',

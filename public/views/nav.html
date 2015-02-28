@@ -1,15 +1,27 @@
 <div class="large ui vertical menu">
 	<div id="navItems">
-		<div class="active item">
+		<div ng-class="{'active' : dashboard}" class="item">
 			<a ng-href="/dashboard" style="cursor:pointer;"><i class="navBar dashboard icon"></i>&nbsp;<span>Dashboard</span></a>
 		</div>
-		<div class="item">
+		<div ng-class="{'active' : devices}" class="item">
 			<a ng-href="/devices" style="cursor:pointer;"><i class="navBar disk outline icon"></i>&nbsp;<span>Devices</span></a>
 		</div>
-		<div class="item">
+		<div ng-class="{'active' : channels}" class="item">
 			<a ng-href="/channels" style="cursor:pointer;"><i class="navBar channels icon"></i>&nbsp;<span>Channels</span></a>
 		</div>
-		<div class="item">
+		<div ng-class="{'active' : message}" class="item">
+			<a ng-href="/message" style="cursor:pointer;"><i class="navBar comment icon"></i>&nbsp;<span>Message</span></a>
+		</div>
+		<div ng-class="{'active' : social}" class="item">
+			<a ng-href="/social" style="cursor:pointer;"><i class="navBar users icon"></i>&nbsp;<span>Social</span></a>
+		</div>
+		<div ng-class="{'active' : timers}" class="item">
+			<a ng-href="/timers" style="cursor:pointer;"><i class="navBar history icon"></i>&nbsp;<span>Timers</span></a>
+		</div>
+		<div ng-class="{'active' : alarms}" class="item">
+			<a ng-href="/alarms" style="cursor:pointer;"><i class="navBar alarm icon"></i>&nbsp;<span>Alarms</span></a>
+		</div>
+		<div ng-class="{'active' : system}" class="item">
 			<a ng-href="/system" style="cursor:pointer;"><i class="navBar settings icon"></i>&nbsp;<span>System</span></a>
 		</div>
 	</div>
@@ -17,16 +29,28 @@
 
 <div class="mini ui vertical menu">
 	<div id="navItems">
-		<div class="item">
+		<div ng-class="{'active' : dashboard}" class="item">
 			<a ng-href="/dashboard" style="cursor:pointer;"><i class="navBar dashboard icon"></i></a>
 		</div>
-		<div class="item">
+		<div ng-class="{'active' : devices}" class="item">
 			<a ng-href="/devices" style="cursor:pointer;"><i class="navBar disk outline icon"></i></a>
 		</div>
-		<div class="item">
+		<div ng-class="{'active' : channels}" class="item">
 			<a ng-href="/channels" style="cursor:pointer;"><i class="navBar channels icon"></i></a>
 		</div>
-		<div class="item">
+		<div ng-class="{'active' : message}" class="item">
+			<a ng-href="/message" style="cursor:pointer;"><i class="navBar comment icon"></i></a>
+		</div>
+		<div ng-class="{'active' : social}" class="item">
+			<a ng-href="/social" style="cursor:pointer;"><i class="navBar users icon"></i></a>
+		</div>
+		<div ng-class="{'active' : timers}" class="item">
+			<a ng-href="/timers" style="cursor:pointer;"><i class="navBar history icon"></i></a>
+		</div>
+		<div ng-class="{'active' : alarms}" class="item">
+			<a ng-href="/alarms" style="cursor:pointer;"><i class="navBar alarm icon"></i></a>
+		</div>
+		<div ng-class="{'active' : settings}" class="item">
 			<a ng-href="/system" style="cursor:pointer;"><i class="navBar settings icon"></i></a>
 		</div>
 	</div>

@@ -1,0 +1,7 @@
+{
+	"abbey-road": "http://video4.earthcam.com:1935/fecnetwork/AbbeyRoadHD1.flv/playlist.m3u8",
+	"trafalgar-square": "http://144.76.30.147:1935/rtplive/trafalgarsq.stream/playlist.m3u8",
+	"nasa": "/nasa/multimedia/nasatv/NTV-Public-IPS.m3u8",
+	"bbc-one": "",
+	"bbc-two": ""
+}
