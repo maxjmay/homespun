@@ -64,7 +64,7 @@ io.sockets.on('connection', function (socket) {
 
 	socket.on('remote:reload', function(){
 		for (var id in tvs){
-			tvs[id].emit('reload', data);
+			tvs[id].emit('reload');
 		}
 	});
 	socket.on('remote:play', function(data){

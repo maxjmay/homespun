@@ -68,6 +68,15 @@
 	<!-- endbower -->
 	<!-- endbuild -->
 
+	<script>
+		var ioParams = {
+			'reconnection limit': 3000,
+			'max reconnection attempts': Number.MAX_VALUE,
+			'connect timeout': 7000
+		};
+		var socket = io.connect("", ioParams);
+	</script>
+
 </body>
 
 </html>
