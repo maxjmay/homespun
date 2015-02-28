@@ -1,0 +1,12 @@
+{
+	"name": "homespan",
+	"version": "0.0.1",
+	"dependencies": {
+		"angular": "*",
+		"jQuery": "*",
+		"socket.io-client": "*",
+		"angular-resource" : "*",
+		"angular-cookies" : "*",
+		"angular-sanitize" : "*"
+	}
+}
