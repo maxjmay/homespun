@@ -9,9 +9,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var fs = require('fs');
 var path = require('path');
-//add your api items here - see app.get below
-var sample = require('./api/sample')(io);
-
+var proxy = require('express-http-proxy');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -38,7 +36,11 @@ app.get('/', function(req, res) {
     });
 });
 
-app.get('/api/sample', sample.get);
+app.use('/nasa', proxy('www.nasa.gov', {
+  forwardPath: function(req, res) {
+    return require('url').parse(req.url).path;
+  }
+}));
 
 server.listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
@@ -49,8 +51,8 @@ io.sockets.on('connection', function (socket) {
 });
 
 //Redirect to index.html if no middleware has picked up the request
-app.all("/*", function (req, res, next) {
-	res.sendfile("index.html", {
-		root: __dirname + "/public"
-	});
-});
+//app.all("/*", function (req, res, next) {
+//	res.sendfile("index.html", {
+//		root: __dirname + "/public"
+//	});
+//});
