@@ -8,7 +8,8 @@
 		"angular-route": "~1.*",
 		"angular-local-storage": "~0.1.0",
 		"angular-resource": "*",
-		"angular-input-date": "*"
+		"angular-input-date": "*",
+		"socket.io-client": "*"
 	},
 	"resolutions": {
 		"angular": "1.3.11"
