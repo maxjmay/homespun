@@ -10,6 +10,7 @@ var fs = require('fs');
 var path = require('path');
 var proxy = require('express-http-proxy');
 var url = require('url');
+var twitter = require('ntwitter');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -116,6 +117,28 @@ io.sockets.on('connection', function (socket) {
 	});
 });
 
+
+var t = new twitter({
+	consumer_key: '', // <--- FILL ME IN
+	consumer_secret: '', // <--- FILL ME IN
+	access_token_key: '', // <--- FILL ME IN
+	access_token_secret: '' // <--- FILL ME IN
+});
+
+//Tell the twitter API to filter on the watchSymbols
+t.stream('statuses/filter', {
+	track: ['@maxjmay']
+}, function (stream) {
+	stream.on('data', function (tweet) {
+		if (tweet.text !== undefined) {
+			if(tweet.text.toLowerCase.indexOf('@maxjmay')){
+				sockets.sockets.emit('notification', {
+					message: "New twitter metion: " + tweet.text
+				});
+			}
+		}
+	});
+});
 //Redirect to index.html if no middleware has picked up the request
 //app.all("/*", function (req, res, next) {
 //	res.sendfile("index.html", {

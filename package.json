@@ -18,6 +18,7 @@
 		"nconf": "~0.6.7",
 		"stringbuilder": "0.0.7",
 		"express-http-proxy": "*",
-		"ejs": "*"
+		"ejs": "*",
+		"ntwitter": "*"
 	}
 }
