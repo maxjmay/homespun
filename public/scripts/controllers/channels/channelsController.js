@@ -29,4 +29,8 @@ Homespun.controller('ChannelsController', ['$scope', '$rootScope', '$http', '$lo
 			$rootScope.allFalse();
 			$rootScope.system = true;
 		}
+
+		$scope.changeChannel = function (url) {
+			socket.emit('remote:play',{url:url});
+		}
 }]);

@@ -30,4 +30,9 @@ Homespun.controller('DevicesController', ['$scope', '$rootScope', '$http', '$loc
 			$rootScope.system = true;
 		}
 
+
+		$scope.reloadAll = function () {
+			socket.emit('remote:reload');
+		}
+
 }]);

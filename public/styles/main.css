@@ -2,6 +2,10 @@ body {
 	background: #0B4249;
 }
 
+label {
+	color: white !important;
+}
+
 @media (max-width: 1300px) {
 	.large.ui.vertical.menu {
 		display: none;
@@ -12,18 +16,16 @@ body {
 		width: 90px !important;
 	}
 
-	#mwLogo {
-		padding: 0px;
-		text-align: center;
-		background-color: rgba(0, 0, 0, 0);
-		position: absolute;
-		bottom: 10px;
-		right: 0px;
-		width: 100%;
+	.main.browser {
+		width: calc(100% - 107px);
 	}
 
 	.ui.vertical.menu .item {
 		padding-left: 33px;
+	}
+
+	#navigationBar {
+		width: 105px;
 	}
 }
 
@@ -36,15 +38,12 @@ body {
 		display: none;
 	}
 
-	#mwLogo {
-		padding: 0px;
-		float: right;
-		width: 111px;
-		height: 45px !important;
-		background-color: transparent;
-		position: absolute;
-		bottom: 5px;
-		right: 10px;
+	.main.browser {
+		 width: calc(100% - 225px);"
+	}
+
+	#navigationBar {
+		width: 225px;
 	}
 }
 
@@ -321,4 +320,9 @@ body {
 	opacity: 0.85;
 	padding: 0px;
 	margin-top: 0px !important;
+}
+
+.ui.cards > .card {
+	width: 30.7%;
+	margin: 1%;
 }
