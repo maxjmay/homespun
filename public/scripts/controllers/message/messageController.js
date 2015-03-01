@@ -4,10 +4,13 @@ Homespun.controller('MessageController', ['$scope', '$rootScope', '$http', '$loc
 	function messageController($scope, $rootScope, $http, $location) {
 		'use strict';
 
-		if ($location.path() == '/dashboard' || $location.path() == '/') {
+		$scope.title = "";
+		$scope.message = "";
+
+		if ($location.path() == '/dashboard') {
 			$rootScope.allFalse();
 			$rootScope.dashboard = true;
-		} else if ($location.path().substring(0, 8) == '/devices') {
+		} else if ($location.path().substring(0, 8) == '/devices' || $location.path() == '/') {
 			$rootScope.allFalse();
 			$rootScope.devices = true;
 		} else if ($location.path() == '/channels') {
@@ -28,5 +31,11 @@ Homespun.controller('MessageController', ['$scope', '$rootScope', '$http', '$loc
 		}  else if ($location.path() == '/system') {
 			$rootScope.allFalse();
 			$rootScope.system = true;
+		}
+
+		$scope.displayMessage = function () {
+			socket.emit('remote:message', {title: $scope.title, message: $scope.message});
+			$scope.title = "";
+			$scope.message = "";
 		}
 }]);

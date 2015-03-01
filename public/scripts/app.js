@@ -26,12 +26,12 @@ Homespun.config(['$routeProvider', '$locationProvider',
 	function ($routeProvider, $locationProvider) {
 		$routeProvider.
 		when('/', {
-			templateUrl: 'views/dashboard',
-			controller: 'DashboardController'
+			templateUrl: 'views/devices',
+			controller: 'DevicesController'
 		}).
 		when('/dashboard', {
-			templateUrl: 'views/dashboard',
-			controller: 'DashboardController'
+			templateUrl: 'views/devices',
+			controller: 'DevicesController'
 		}).
 		when('/devices', {
 			templateUrl: 'views/devices',

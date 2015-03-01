@@ -7,10 +7,10 @@ Homespun.controller('TimersController', ['$scope', '$rootScope', '$http', '$loca
 		$scope.message = "";
 		$scope.delay = 0;
 
-		if ($location.path() == '/dashboard' || $location.path() == '/') {
+		if ($location.path() == '/dashboard') {
 			$rootScope.allFalse();
 			$rootScope.dashboard = true;
-		} else if ($location.path().substring(0, 8) == '/devices') {
+		} else if ($location.path().substring(0, 8) == '/devices' || $location.path() == '/') {
 			$rootScope.allFalse();
 			$rootScope.devices = true;
 		} else if ($location.path() == '/channels') {
@@ -35,5 +35,7 @@ Homespun.controller('TimersController', ['$scope', '$rootScope', '$http', '$loca
 
 		$rootScope.addTimer = function (){
 			socket.emit('remote:timer', {message: $scope.message, delay: $scope.delay});
+			$scope.message = "";
+			$scope.delay = 0 ;
 		}
 }]);
