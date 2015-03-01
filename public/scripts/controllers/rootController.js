@@ -26,10 +26,10 @@ Homespun.controller('RootController', ['$scope', '$rootScope', '$http', '$locati
 		}
 
 
-		if ($location.path() == '/dashboard' || $location.path() == '/') {
+		if ($location.path() == '/dashboard') {
 			$rootScope.allFalse();
 			$rootScope.dashboard = true;
-		} else if ($location.path().substring(0, 8) == '/devices') {
+		} else if ($location.path().substring(0, 8) == '/devices' || $location.path() == '/') {
 			$rootScope.allFalse();
 			$rootScope.devices = true;
 		} else if ($location.path() == '/channels') {

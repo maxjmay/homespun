@@ -130,9 +130,10 @@ t.stream('statuses/filter', {
 	track: ['@maxjmay']
 }, function (stream) {
 	stream.on('data', function (tweet) {
-		console.log(tweet);
+
 		if (tweet.text !== undefined) {
-			if (tweet.text.toLowerCase().indexOf('@maxjmay')) {
+			if (tweet.text.toLowerCase().indexOf('@maxjmay') != -1) {
+				console.log(tweet);
 				for (var id in tvs) {
 					tvs[id].emit('notification', {
 						message: "New twitter metion: " + tweet.text

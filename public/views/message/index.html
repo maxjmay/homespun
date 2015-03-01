@@ -1,11 +1,11 @@
 <div style="margin: 0 auto; width: 70%; margin-top: 40px; background-color: #212A33;" class="ui error form segment">
 	<div class="field">
 		<label>Title</label>
-		<input placeholder="Title" type="text">
+		<input ng-model="title" placeholder="Title" type="text">
 	</div>
 	<div class="field">
 		<label>Body</label>
-		<textarea placeholder="Title" type="text"></textarea>
+		<textarea ng-model="message" placeholder="Title" type="text"></textarea>
 	</div>
-	<div style="float: right;" class="ui submit button">Submit</div>
+	<div style="float: right;" ng-click="displayMessage();" class="ui submit button">Submit</div>
 </div>
