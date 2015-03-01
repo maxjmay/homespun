@@ -16,6 +16,7 @@
 			height: 100%;
 			width: 100%;
 			overflow: hidden;
+			font-family: 'arial';
 		}
 
 		.vjs-default-skin .vjs-big-play-button {
@@ -32,13 +33,31 @@
 			width: 200px;
 			height: 50px;
 			font-size: 20px;
-			font-family: 'arial';
 			background-color: #4183D7;
 			color: #fff;
 			padding: 20px;
 			overflow: hidden;
 			border-left: 5px solid #fff;
 			margin-bottom: 20px;
+		}
+
+		#alarm_container {
+			padding-top: 20px;
+			position: absolute;
+			width: 250px;
+			height: 270px;
+			top: 380px;
+			right: 42%;
+			margin-left: -200px;
+			background-color:  #FF7E00;
+			border-bottom: 5px solid #fff;
+			text-align: center;
+		}
+
+		.title, .time{
+			color: #fff;
+			font-size: 25px;
+
 		}
 	</style>
 
@@ -54,6 +73,12 @@
 
 	<div id="notifications_container">
 
+	</div>
+
+	<div id="alarm_container" style="display: none;">
+		<div id="alarm_title" class="title">Wake up!</div>
+		<img src="http://a1.mzstatic.com/eu/r30/Purple3/v4/0f/18/42/0f184213-bf4e-d467-1d95-ed387522194e/icon175x175.jpeg">
+		<div id="alarm_time" class="time">19:00</div>
 	</div>
 
 	<script>
@@ -86,6 +111,21 @@
 				notification.parentElement.removeChild(notification);
 			}, 10000)
 		});
+
+		socket.on('alarm', function (data) {
+			var alarm = document.getElementById('alarm_container');
+
+			document.getElementById('alarm_title').innerHTML = data.message;
+			document.getElementById('alarm_time').innerHTML = data.time.toLocaleTimeString().substring(0, str.length - 3);
+
+			alarm.style.display = 'block';
+
+			setTimeout(function () {
+
+				alarm.style.display = 'none';
+			}, 10000)
+		});
+
 		socket.on('disconnect', function () {
 
 		});
