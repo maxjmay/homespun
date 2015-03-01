@@ -116,7 +116,7 @@
 			var alarm = document.getElementById('alarm_container');
 
 			document.getElementById('alarm_title').innerHTML = data.message;
-			document.getElementById('alarm_time').innerHTML = data.time.toLocaleTimeString().substring(0, str.length - 3);
+			document.getElementById('alarm_time').innerHTML = data.time.substring(11, 16);
 
 			alarm.style.display = 'block';
 

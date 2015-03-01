@@ -4,6 +4,9 @@ Homespun.controller('AlarmsController', ['$scope', '$rootScope', '$http', '$loca
 	function alarmsController($scope, $rootScope, $http, $location) {
 		'use strict';
 
+		$scope.message = "";
+		$('.timer.box').val("00:00");
+
 		if ($location.path() == '/dashboard' || $location.path() == '/') {
 			$rootScope.allFalse();
 			$rootScope.dashboard = true;
@@ -28,5 +31,12 @@ Homespun.controller('AlarmsController', ['$scope', '$rootScope', '$http', '$loca
 		}  else if ($location.path() == '/system') {
 			$rootScope.allFalse();
 			$rootScope.system = true;
+		}
+
+		$rootScope.setAlarm = function (){
+			var date = new Date();
+			date.setHours($('.timer.box').val().substring(0, 2));
+			date.setMinutes($('.timer.box').val().substring(3, 5));
+			socket.emit('remote:alarm', {message: $scope.message, time: date});
 		}
 }]);
