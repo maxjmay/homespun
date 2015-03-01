@@ -33,7 +33,7 @@ app.use(express.errorHandler());
 app.get('/tv', function (req, res) {
 	var url_parts = url.parse(req.url, true);
 	var query = url_parts.query;
-	if ( query.url) {
+	if (query.url) {
 		res.render('tv.ejs', {
 			url: query.url
 		});
@@ -90,6 +90,24 @@ io.sockets.on('connection', function (socket) {
 		for (var id in tvs) {
 			tvs[id].emit('notification', data);
 		}
+	});
+	socket.on('remote:timer', function (data) {
+		console.log("Starting timer for " + data.delay + " minutes");
+		setTimeout(function () {
+			console.log("Timer done")
+			for (var id in tvs) {
+				tvs[id].emit('notification', data);
+			}
+		}, data.delay * 60000);
+	});
+
+	socket.on('remote:alarm', function (data) {
+		console.log("Setting alarm for " + data.time);
+		setTimeout(function () {
+			for (var id in tvs) {
+				tvs[id].emit('alarm', data);
+			}
+		}, data.time - new Date());
 	});
 
 	socket.on('disconnect', function () {
