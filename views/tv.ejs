@@ -49,15 +49,35 @@
 			top: 380px;
 			right: 42%;
 			margin-left: -200px;
-			background-color:  #FF7E00;
+			background-color: #FF7E00;
 			border-bottom: 5px solid #fff;
 			text-align: center;
 		}
 
-		.title, .time{
+		.title,
+		.time,
+		.message {
 			color: #fff;
 			font-size: 25px;
+		}
 
+		#message_container {
+			padding-top: 20px;
+			position: absolute;
+			width: 500px;
+			height: 270px;
+			top: 380px;
+			right: 37%;
+			background-color: #27ae60;
+			border-bottom: 5px solid #fff;
+			text-align: center;
+		}
+
+		#message_container .title {
+			font-size: 32px;
+			border-bottom: 2px solid #fff;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
 		}
 	</style>
 
@@ -73,6 +93,11 @@
 
 	<div id="notifications_container">
 
+	</div>
+
+	<div id="message_container" style="display: none;">
+		<div id="message_title" class="title">DEVELOPERS</div>
+		<div id="message_message" class="message">Developers, Developers... Sorry justeat</div>
 	</div>
 
 	<div id="alarm_container" style="display: none;">
@@ -109,6 +134,20 @@
 			setTimeout(function () {
 				var notification = document.getElementById("not-" + index);
 				notification.parentElement.removeChild(notification);
+			}, 10000)
+		});
+
+		socket.on('message', function (data) {
+			var message = document.getElementById('message_container');
+
+			document.getElementById('message_title').innerHTML = data.title;
+			document.getElementById('message_message').innerHTML = data.message;
+
+			message.style.display = 'block';
+
+			setTimeout(function () {
+
+				message.style.display = 'none';
 			}, 10000)
 		});
 
