@@ -71,22 +71,6 @@ app.get('/guide/bbcone', function (req, res) {
 
 	request(url, function (err, resp, body) {
 		$ = cheerio.load(body);
-		console.log($.html());
-		$('#now div .title.trunc').each(function () {
-			res.jsonp({
-				title: $(this).text().trim()
-			})
-		});
-	})
-
-});
-
-app.get('/guide/bbcone', function (req, res) {
-	var url = 'http://www.bbc.co.uk/iplayer/live/bbctwo';
-
-	request(url, function (err, resp, body) {
-		$ = cheerio.load(body);
-		console.log($.html());
 		$('#now div .title.trunc').each(function () {
 			res.jsonp({
 				title: $(this).text().trim()
@@ -101,7 +85,20 @@ app.get('/guide/bbctwo', function (req, res) {
 
 	request(url, function (err, resp, body) {
 		$ = cheerio.load(body);
-		console.log($.html());
+		$('#now div .title.trunc').each(function () {
+			res.jsonp({
+				title: $(this).text().trim()
+			})
+		});
+	})
+
+});
+
+app.get('/guide/bbcthree', function (req, res) {
+	var url = 'http://www.bbc.co.uk/iplayer/live/bbcthree';
+
+	request(url, function (err, resp, body) {
+		$ = cheerio.load(body);
 		$('#now div .title.trunc').each(function () {
 			return res.jsonp({
 				title: $(this).text().trim()
