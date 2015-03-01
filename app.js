@@ -11,6 +11,8 @@ var path = require('path');
 var proxy = require('express-http-proxy');
 var url = require('url');
 var twitter = require('ntwitter');
+var cheerio = require('cheerio');
+var request = require('request');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -62,6 +64,75 @@ app.use('/bbc', proxy('www.bbc.co.uk', {
 		return require('url').parse(req.url).path;
 	}
 }));
+
+
+app.get('/guide/bbcone', function (req, res) {
+	var url = 'http://www.bbc.co.uk/iplayer/live/bbcone';
+
+	request(url, function (err, resp, body) {
+		$ = cheerio.load(body);
+		console.log($.html());
+		$('#now div .title.trunc').each(function () {
+			res.jsonp({
+				title: $(this).text().trim()
+			})
+		});
+	})
+
+});
+
+app.get('/guide/bbcone', function (req, res) {
+	var url = 'http://www.bbc.co.uk/iplayer/live/bbctwo';
+
+	request(url, function (err, resp, body) {
+		$ = cheerio.load(body);
+		console.log($.html());
+		$('#now div .title.trunc').each(function () {
+			res.jsonp({
+				title: $(this).text().trim()
+			})
+		});
+	})
+
+});
+
+app.get('/guide/bbctwo', function (req, res) {
+	var url = 'http://www.bbc.co.uk/iplayer/live/bbctwo';
+
+	request(url, function (err, resp, body) {
+		$ = cheerio.load(body);
+		console.log($.html());
+		$('#now div .title.trunc').each(function () {
+			return res.jsonp({
+				title: $(this).text().trim()
+			})
+		});
+
+		res.jsonp({
+			title: "Off-air"
+		})
+	})
+
+});
+
+app.get('/guide/bbcthee', function (req, res) {
+	var url = 'http://www.bbc.co.uk/iplayer/live/bbcthree';
+
+	request(url, function (err, resp, body) {
+		$ = cheerio.load(body);
+		console.log($.html());
+		$('#now div .title.trunc').each(function () {
+			return res.jsonp({
+				title: $(this).text().trim()
+			})
+		});
+
+		res.jsonp({
+			title: "Off-air"
+		})
+	})
+
+});
 
 server.listen(app.get('port'), function () {
 	console.log('Express server listening on port ' + app.get('port'));
