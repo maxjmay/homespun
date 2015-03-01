@@ -4,6 +4,9 @@ Homespun.controller('TimersController', ['$scope', '$rootScope', '$http', '$loca
 	function timersController($scope, $rootScope, $http, $location) {
 		'use strict';
 
+		$scope.message = "";
+		$scope.delay = 0;
+
 		if ($location.path() == '/dashboard' || $location.path() == '/') {
 			$rootScope.allFalse();
 			$rootScope.dashboard = true;
@@ -28,5 +31,9 @@ Homespun.controller('TimersController', ['$scope', '$rootScope', '$http', '$loca
 		}  else if ($location.path() == '/system') {
 			$rootScope.allFalse();
 			$rootScope.system = true;
+		}
+
+		$rootScope.addTimer = function (){
+			socket.emit('remote:timer', {message: $scope.message, delay: $scope.delay});
 		}
 }]);

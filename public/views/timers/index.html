@@ -1,11 +1,11 @@
 <div style="margin: 0 auto; width: 70%; margin-top: 40px; background-color: #212A33;" class="ui error form segment">
 	<div class="field">
 		<label>Message</label>
-		<input placeholder="Message" type="text">
+		<input ng-model="message" placeholder="Message" type="text">
 	</div>
 	<div class="field">
 		<label>Time (minutes)</label>
-		<input placeholder="Time" type="number">
+		<input ng-model="delay" placeholder="Time" type="number">
 	</div>
-	<div style="float: right;" class="ui submit button">Submit</div>
+	<div ng-click="addTimer();" style="float: right;" class="ui submit button">Submit</div>
 </div>
