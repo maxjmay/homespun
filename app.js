@@ -107,7 +107,7 @@ io.sockets.on('connection', function (socket) {
 			for (var id in tvs) {
 				tvs[id].emit('alarm', data);
 			}
-		}, data.time - new Date());
+		}, new Date(data.time) - new Date());
 	});
 
 	socket.on('disconnect', function () {
