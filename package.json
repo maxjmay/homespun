@@ -19,6 +19,8 @@
 		"stringbuilder": "0.0.7",
 		"express-http-proxy": "*",
 		"ejs": "*",
-		"ntwitter": "*"
+		"ntwitter": "*",
+		"cheerio": "*",
+		"request": "*"
 	}
 }
