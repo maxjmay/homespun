@@ -3,7 +3,7 @@
 
 <head>
 	<!-- Change URLs to wherever Video.js files will be hosted -->
-	<link href="video-js.css" rel="stylesheet" type="text/css">
+	<link href="/tv/video-js.css" rel="stylesheet" type="text/css">
 	<!-- video.js must be in the <head> for older IEs to work. -->
 	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 
@@ -48,7 +48,7 @@
 
 	<div id="video_container">
 		<video id="video" class="video-js vjs-default-skin" controls="false" preload="none" width="100%" height="100%" data-setup="{&quot;techOrder&quot;: [&quot;flash&quot;]}" autoplay>
-			<source id="videoSrc" src="/bbc/mediaselector/playlists/hls/mobile_wifi/ak/bbc2.m3u8" type="video/mp4">
+			<source id="videoSrc" src="<%= url %>" type="video/mp4">
 		</video>
 	</div>
 
@@ -57,9 +57,6 @@
 	</div>
 
 	<script>
-		if (location.href.indexOf('url=') != -1) {
-			document.getElementById("videoSrc").src = location.search.split('url=')[1];
-		}
 		var notcounter = 0;
 
 		var ioParams = {
@@ -95,9 +92,9 @@
 	</script>
 
 
-	<script id="videojavascript" id="videoscript" src="video.js"></script>
+	<script id="videojavascript" id="videoscript" src="/tv/video.js"></script>
 	<script>
-		videojs.options.flash.swf = "video-js.swf";
+		videojs.options.flash.swf = "/tv/video-js.swf";
 	</script>
 </body>
 

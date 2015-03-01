@@ -1,15 +1,6 @@
-<div style="margin: 0 auto; width: 70%; margin-top: 15px;" class="ui fluid form segment">
-	<div class="field">
-		<label>Stream</label>
-		<input placeholder="url" type="text">
-	</div>
-	<div style="float: right;" class="ui submit button">Add</div>
-</div>
-
-
 <div style="margin-left: 5px;" class="ui cards">
 	<div class="ui card">
-		<a ng-click="changeChannel()">
+		<a ng-click="changeChannel('/bbc/mediaselector/playlists/hls/mobile_wifi/ak/bbc1.m3u8')">
 			<div style="overflow: hidden; background-color: #C00;" class="image">
 				<img style="height: 100px; display: block; margin: 0 auto;" src="/images/bbc1.png">
 			</div>
@@ -26,7 +17,7 @@
 	</div>
 
 	<div class="ui card">
-		<a ng-click="changeChannel('')">
+		<a ng-click="changeChannel('/bbc/mediaselector/playlists/hls/mobile_wifi/ak/bbc2.m3u8')">
 			<div style="overflow: hidden; background-color: #005E70;" class="image">
 				<img style="height: 100px; display: block; margin: 0 auto;" src="/images/bbc2.png">
 			</div>
@@ -43,7 +34,7 @@
 	</div>
 
 	<div class="ui card">
-		<a ng-click="changeChannel()">
+		<a ng-click="changeChannel('/bbc/mediaselector/playlists/hls/mobile_wifi/ak/bbc3.m3u8')">
 			<div style="overflow: hidden; background-color: #ffffff;" class="image">
 				<img style="height: 100px; display: block; margin: 0 auto;" src="/images/bbc3.jpg">
 			</div>
