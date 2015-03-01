@@ -32,8 +32,8 @@
 	<![endif]-->
 
 <body ng-app="HomespunApp" ng-controller="RootController">
-	<div style="display:inline-block;" id="navigationBar" ng-include="'views/nav.html'"></div>
-	<div style="display:inline-block; width: calc(100% - 225px);" ng-view class="main browser"></div>
+	<div id="navigationBar" ng-include="'views/nav.html'"></div>
+	<div style="display:inline-block;" ng-view class="main browser"></div>
 
 	<!-- build:js scripts/vendor.js -->
 	<!-- bower:js -->
