@@ -119,10 +119,10 @@ io.sockets.on('connection', function (socket) {
 
 
 var t = new twitter({
-	consumer_key: '', // <--- FILL ME IN
-	consumer_secret: '', // <--- FILL ME IN
-	access_token_key: '', // <--- FILL ME IN
-	access_token_secret: '' // <--- FILL ME IN
+	consumer_key: process.env.TCK, // <--- FILL ME IN
+	consumer_secret: process.env.TCS, // <--- FILL ME IN
+	access_token_key: process.env.TAT, // <--- FILL ME IN
+	access_token_secret: process.env.TAS // <--- FILL ME IN
 });
 
 //Tell the twitter API to filter on the watchSymbols
@@ -130,8 +130,9 @@ t.stream('statuses/filter', {
 	track: ['@maxjmay']
 }, function (stream) {
 	stream.on('data', function (tweet) {
+		console.log(tweet);
 		if (tweet.text !== undefined) {
-			if(tweet.text.toLowerCase.indexOf('@maxjmay')){
+			if(tweet.text.toLowerCase().indexOf('@maxjmay')){
 				sockets.sockets.emit('notification', {
 					message: "New twitter metion: " + tweet.text
 				});
