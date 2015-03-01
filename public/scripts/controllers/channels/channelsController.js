@@ -1,8 +1,12 @@
 /*global Homespun, angular, $ */
 
-Homespun.controller('ChannelsController', ['$scope', '$rootScope', '$http', '$location',
-	function channelsController($scope, $rootScope, $http, $location) {
+Homespun.controller('ChannelsController', ['$scope', '$rootScope', '$http', '$location', 'BBC1', 'BBC2', 'BBC3',
+	function channelsController($scope, $rootScope, $http, $location, BBC1, BBC2, BBC3) {
 		'use strict';
+
+		$scope.bbc1 = BBC1.get({}, function () {});
+		$scope.bbc2 = BBC2.get({}, function () {});
+		$scope.bbc3 = BBC3.get({}, function () {});
 
 		if ($location.path() == '/dashboard') {
 			$rootScope.allFalse();

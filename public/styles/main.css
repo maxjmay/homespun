@@ -325,6 +325,7 @@ label {
 .ui.cards > .card {
 	width: 30.7%;
 	margin: 1%;
+	min-height: 200px;
 }
 
 .timer.box {

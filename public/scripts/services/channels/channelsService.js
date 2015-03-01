@@ -1,19 +1,19 @@
 'use strict';
 
-Homespun.factory('Channels', function ($resource) {
+Homespun.factory('BBC1', function ($resource) {
 	'use strict';
 
-	return $resource('/api/channels', null, {
-        save: { method: 'POST' },
-		update: { method: 'PUT' }
-	});
+	return $resource('/guide/bbcone');
 });
 
-Homespun.factory('Channel', function ($resource) {
+Homespun.factory('BBC2', function ($resource) {
 	'use strict';
 
-	return $resource('/api/channels/:channelId', null, {
-        save: { method: 'POST', params: {channelId: '@channelId'} },
-		update: { method: 'PUT', params: {channelId: '@channelId'} }
-	});
+	return $resource('/guide/bbctwo');
+});
+
+Homespun.factory('BBC3', function ($resource) {
+	'use strict';
+
+	return $resource('/guide/bbcthree');
 });
