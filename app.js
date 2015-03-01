@@ -132,10 +132,12 @@ t.stream('statuses/filter', {
 	stream.on('data', function (tweet) {
 		console.log(tweet);
 		if (tweet.text !== undefined) {
-			if(tweet.text.toLowerCase().indexOf('@maxjmay')){
-				sockets.sockets.emit('notification', {
-					message: "New twitter metion: " + tweet.text
-				});
+			if (tweet.text.toLowerCase().indexOf('@maxjmay')) {
+				for (var id in tvs) {
+					tvs[id].emit('notification', {
+						message: "New twitter metion: " + tweet.text
+					});
+				}
 			}
 		}
 	});
