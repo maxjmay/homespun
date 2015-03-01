@@ -35,5 +35,7 @@ Homespun.controller('MessageController', ['$scope', '$rootScope', '$http', '$loc
 
 		$scope.displayMessage = function () {
 			socket.emit('remote:message', {title: $scope.title, message: $scope.message});
+			$scope.title = "";
+			$scope.message = "";
 		}
 }]);

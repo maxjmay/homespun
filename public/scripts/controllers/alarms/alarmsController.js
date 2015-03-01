@@ -38,5 +38,7 @@ Homespun.controller('AlarmsController', ['$scope', '$rootScope', '$http', '$loca
 			date.setHours($('.timer.box').val().substring(0, 2));
 			date.setMinutes($('.timer.box').val().substring(3, 5));
 			socket.emit('remote:alarm', {message: $scope.message, time: date});
+			$scope.message = "";
+			$('.timer.box').val("00:00");
 		}
 }]);

@@ -35,5 +35,7 @@ Homespun.controller('TimersController', ['$scope', '$rootScope', '$http', '$loca
 
 		$rootScope.addTimer = function (){
 			socket.emit('remote:timer', {message: $scope.message, delay: $scope.delay});
+			$scope.message = "";
+			$scope.delay = 0 ;
 		}
 }]);
