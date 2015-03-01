@@ -92,6 +92,13 @@ io.sockets.on('connection', function (socket) {
 			tvs[id].emit('notification', data);
 		}
 	});
+
+	socket.on('remote:message', function (data) {
+		for (var id in tvs) {
+			tvs[id].emit('message', data);
+		}
+	});
+
 	socket.on('remote:timer', function (data) {
 		console.log("Starting timer for " + data.delay + " minutes");
 		setTimeout(function () {
